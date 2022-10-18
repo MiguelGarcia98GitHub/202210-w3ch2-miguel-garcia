@@ -12,7 +12,7 @@ Se listan las mascotas
 
 -------- Create - Read - Update - Delete
 
-Se puede añadir mascotas
+Se pueden añadir mascotas
 
 Se borran mascotas
 
