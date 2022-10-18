@@ -1,0 +1,27 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+header,
+footer {
+    flex: 1 0 auto;
+    color: white;
+    background-color: dodgerblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    flex: 10 0 auto;
+
+    padding: 1rem;
+    background-color: aliceblue;
+}
