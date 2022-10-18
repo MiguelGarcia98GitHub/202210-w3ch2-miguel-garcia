@@ -1,9 +1,6 @@
 export class Pet {
     id: number;
-    // name: string;
-    // breed: string;
-    // isAdopted: boolean;
-    // owner: string;
+
     static createId() {
         return Math.round(Math.random() * 1_000_000);
     }

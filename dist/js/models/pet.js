@@ -8,10 +8,6 @@ export class Pet {
         this.breed = breed;
         this.owner = owner;
     }
-    // name: string;
-    // breed: string;
-    // isAdopted: boolean;
-    // owner: string;
     static createId() {
         return Math.round(Math.random() * 1000000);
     }

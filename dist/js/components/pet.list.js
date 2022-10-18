@@ -29,7 +29,7 @@ export class PetList extends Component {
                 <ul>`;
         this.pets.forEach((item) => {
             template += `
-            <li> ${item.id} - ${item.petname} - ${item.owner}
+            <li> ${item.id} - ${item.petname} - ${item.breed} - ${item.owner}
             <span class="eraser" data-id="${item.id}">🗑️</span>
             </li>`;
         });
