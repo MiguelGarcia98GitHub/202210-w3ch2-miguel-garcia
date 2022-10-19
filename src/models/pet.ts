@@ -8,11 +8,13 @@ export class Pet {
     constructor(
         public petname: string,
         public breed: string,
-        public owner: string
+        public owner: string,
+        public isAdopted: boolean
     ) {
         this.id = Pet.createId();
         this.petname = petname;
         this.breed = breed;
         this.owner = owner;
+        this.isAdopted = isAdopted;
     }
 }

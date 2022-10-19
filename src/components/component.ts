@@ -7,6 +7,7 @@ export class Component {
     }
 
     renderAdd(selector: string, HTMLtemplate: string) {
+        if (!selector) return false;
         const element = document.querySelector(selector);
         if (element === null) return false;
         element.innerHTML += HTMLtemplate;
@@ -14,6 +15,7 @@ export class Component {
     }
 
     renderOuter(selector: string, HTMLtemplate: string) {
+        if (!selector) return false;
         const element = document.querySelector(selector);
         if (element === null) return false;
         element.outerHTML = HTMLtemplate;
