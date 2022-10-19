@@ -5,7 +5,8 @@ describe('Given the class Pet', () => {
         const petname = 'petname1';
         const breed = 'breed1';
         const owner = 'owner1';
-        const character = new Pet(petname, breed, owner);
+        const isComplete = true;
+        const character = new Pet(petname, breed, owner, isComplete);
         const id = character.id;
         const expectedResult = {
             petname,

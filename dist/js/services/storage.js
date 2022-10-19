@@ -9,7 +9,6 @@ export class Storage {
         return JSON.parse(dataString);
     }
     setLocalStorage(data) {
-        const arrayToString = JSON.stringify(data);
-        localStorage.setItem(this.store, arrayToString);
+        localStorage.setItem(this.store, JSON.stringify(data));
     }
 }

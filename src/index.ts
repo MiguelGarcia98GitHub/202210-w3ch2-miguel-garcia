@@ -1,7 +1,7 @@
 import { Header } from './components/header.js';
 import { Main } from './components/main.js';
 import { Footer } from './components/footer.js';
-import { PetList } from './components/pet.list.js';
+import { PetList } from './components/petlist.js';
 
 console.log('Loaded index');
 

@@ -24,12 +24,13 @@ export class PetList extends Component {
     }
     createTemplate() {
         let template = `<section>
-                <h2>Tareas</h2>
+                <h2>Pets</h2>
                 <slot id="add-task"></slot>
                 <ul>`;
         this.pets.forEach((item) => {
             template += `
             <li> ${item.id} - ${item.petname} - ${item.breed} - ${item.owner}
+             - ${item.isAdopted ? 'es adoptado' : 'no es adoptado'}
             <span class="eraser" data-id="${item.id}">🗑️</span>
             </li>`;
         });
@@ -45,7 +46,11 @@ export class PetList extends Component {
             .value;
         const owner = document.querySelector('#resp3')
             .value;
-        this.pets.push(new Pet(name, breed, owner));
+        const isAdoptedCheckbox = document.querySelector('#resp5');
+        console.log(isAdoptedCheckbox);
+        const isAdopted = isAdoptedCheckbox.checked;
+        console.log(isAdopted);
+        this.pets.push(new Pet(name, breed, owner, isAdopted));
         this.manageComponent();
     }
     handlerEraser(ev) {

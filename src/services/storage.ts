@@ -1,14 +1,13 @@
 export class Storage<T> {
     constructor(public store: string = 'Pet') {}
 
-    getLocalStorage() {
+    getLocalStorage(): Array<T> {
         const dataString = localStorage.getItem(this.store);
         if (!dataString) return [];
         return JSON.parse(dataString);
     }
 
     setLocalStorage(data: Array<T>) {
-        const arrayToString = JSON.stringify(data);
-        localStorage.setItem(this.store, arrayToString);
+        localStorage.setItem(this.store, JSON.stringify(data));
     }
 }
