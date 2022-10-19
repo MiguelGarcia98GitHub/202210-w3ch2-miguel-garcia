@@ -1,5 +1,5 @@
 export class Storage {
-    constructor(store = 'Pet') {
+    constructor(store) {
         this.store = store;
     }
     getLocalStorage() {

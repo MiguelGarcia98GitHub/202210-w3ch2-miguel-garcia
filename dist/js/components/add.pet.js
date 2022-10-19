@@ -4,14 +4,13 @@ export class AddPet extends Component {
         super();
         this.selector = selector;
         this.handle = handle;
-        this.HTMLtemplate = this.createTemplate();
-        this.renderOuter(this.selector, this.HTMLtemplate);
+        this.template = this.createTemplate();
+        this.renderOuter(this.selector, this.template);
         setTimeout(() => {
             var _a;
             (_a = document
                 .querySelector('form')) === null || _a === void 0 ? void 0 : _a.addEventListener('submit', (ev) => {
                 ev.preventDefault();
-                console.log('Añadiendo cosas al HTML');
                 handle(ev);
             });
         }, 100);
