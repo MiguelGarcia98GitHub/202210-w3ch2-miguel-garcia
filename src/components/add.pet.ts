@@ -1,17 +1,16 @@
 import { Component } from './component.js';
 
 export class AddPet extends Component {
-    HTMLtemplate: string;
+    template: string;
     constructor(public selector: string, public handle: (ev: Event) => void) {
         super();
-        this.HTMLtemplate = this.createTemplate();
-        this.renderOuter(this.selector, this.HTMLtemplate);
+        this.template = this.createTemplate();
+        this.renderOuter(this.selector, this.template);
         setTimeout(() => {
             document
                 .querySelector('form')
                 ?.addEventListener('submit', (ev: Event) => {
                     ev.preventDefault();
-                    console.log('Añadiendo cosas al HTML');
                     handle(ev);
                 });
         }, 100);

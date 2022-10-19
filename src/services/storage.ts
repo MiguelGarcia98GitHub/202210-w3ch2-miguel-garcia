@@ -1,5 +1,5 @@
 export class Storage<T> {
-    constructor(public store: string = 'Pet') {}
+    constructor(public store: string) {}
 
     getLocalStorage(): Array<T> {
         const dataString = localStorage.getItem(this.store);

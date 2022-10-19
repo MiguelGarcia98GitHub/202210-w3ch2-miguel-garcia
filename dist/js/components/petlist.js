@@ -8,7 +8,7 @@ export class PetList extends Component {
     constructor(selector) {
         super();
         this.selector = selector;
-        this.storeService = new Storage('Pets');
+        this.storeService = new Storage('pets');
         if (this.storeService.getLocalStorage().length === 0) {
             this.pets = [...PETS];
             this.storeService.setLocalStorage(this.pets);
@@ -16,19 +16,20 @@ export class PetList extends Component {
         else {
             this.pets = this.storeService.getLocalStorage();
         }
+        this.manageComponent();
     }
     manageComponent() {
         this.template = this.createTemplate();
         this.render(this.selector, this.template);
-        new AddPet('slot#add-task', this.handleAdd.bind(this));
+        new AddPet('slot#add-pet', this.handleAdd.bind(this));
     }
     createTemplate() {
         let template = `<section>
                 <h2>Pets</h2>
-                <slot id="add-task"></slot>
+                <slot id="add-pet"></slot>
                 <ul>`;
         this.pets.forEach((item) => {
-            template += new ItemPet('', item, this.handlerEraser.bind(this), this.handlerComplete.bind(this)).template;
+            template += new ItemPet('', item, this.handlerEraser.bind(this), this.handlerisAdopted.bind(this)).template;
             // += `
             // <li> ${item.id} - ${item.petname} - ${item.breed} - ${item.owner}
             //  - ${item.isAdopted ? 'es adoptado' : 'no es adoptado'}
@@ -47,9 +48,11 @@ export class PetList extends Component {
             .value;
         const owner = document.querySelector('#resp3')
             .value;
-        const isAdoptedCheckbox = document.querySelector('#resp5');
-        const isAdopted = isAdoptedCheckbox.checked;
-        this.pets.push(new Pet(name, breed, owner, isAdopted));
+        // const isAdoptedCheckbox = document.querySelector(
+        //     '#resp5'
+        // ) as HTMLInputElement;
+        // const isAdopted = isAdoptedCheckbox.checked;
+        this.pets.push(new Pet(name, breed, owner));
         this.storeService.setLocalStorage(this.pets);
         this.manageComponent();
     }
@@ -58,7 +61,7 @@ export class PetList extends Component {
         this.storeService.setLocalStorage(this.pets);
         this.manageComponent();
     }
-    handlerComplete(changeID) {
+    handlerisAdopted(changeID) {
         const i = this.pets.findIndex((item) => item.id === changeID);
         this.pets[i].isAdopted = !this.pets[i].isAdopted;
         this.storeService.setLocalStorage(this.pets);
